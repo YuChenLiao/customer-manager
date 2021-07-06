@@ -21,8 +21,8 @@
   },
   "dependencies": {
     "@ant-design/pro-layout": "^6.5.0",
-    "@umijs/plugin-dva": "^0.13.0",
     "@umijs/preset-react": "^1.8.14",
+    "axios": "^0.21.1",
     "tslint-react": "^5.0.0",
     "umi": "^3.5.3"
   },
