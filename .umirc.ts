@@ -4,7 +4,10 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
-  dva: {},
+  dva: {
+    immer: true,
+    hmr: false,
+  },
   antd: {},
   layout: { name: '客房管理系统', locale: false },
   routes: [
