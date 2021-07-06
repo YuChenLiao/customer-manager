@@ -4,8 +4,11 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
+  dva: {},
+  antd: {},
+  layout: { name: '客房管理系统', locale: false },
   routes: [
-    { path: '/', component: '@/pages/index' },
+    { exact: true, name: '首页', path: '/', component: '@/pages/index' },
   ],
   fastRefresh: {},
 });
