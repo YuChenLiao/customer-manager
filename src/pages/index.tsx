@@ -1,5 +1,14 @@
 import { useState, FC } from 'react';
-import { Card, Input, Select, Button, Menu, Form, Divider, Radio } from 'antd';
+import {
+  Card,
+  Input,
+  Select,
+  Button,
+  Menu,
+  Form,
+  Radio,
+  PageHeader,
+} from 'antd';
 import { Loading, connect, defaultState } from 'umi';
 
 interface PageProps {
@@ -10,9 +19,10 @@ interface PageProps {
 const { Option } = Select;
 
 const IndexPage: FC<PageProps> = (props) => {
-  console.log(props);
   const [pageKey, setPage] = useState('checkIn');
   const [roomType, setType] = useState('');
+  const { global } = props;
+  console.log(global);
 
   const layout = {
     labelCol: { span: 4 },
@@ -67,7 +77,7 @@ const IndexPage: FC<PageProps> = (props) => {
           <Form.Item label="房间号">
             <Input />
           </Form.Item>
-          <Form.Item label="费用"></Form.Item>
+          <Form.Item label="费用">{global.cost}元</Form.Item>
           <Form.Item {...tailLayout}>
             <Button type="primary">确定</Button>
           </Form.Item>
@@ -92,14 +102,13 @@ const IndexPage: FC<PageProps> = (props) => {
   };
 
   return (
-    <Card>
+    <PageHeader title="首页">
       <Menu mode="horizontal" selectedKeys={[pageKey]} onClick={handleClick}>
         <Menu.Item key="checkIn">入住</Menu.Item>
         <Menu.Item key="checkOut">退房</Menu.Item>
       </Menu>
-      <Divider />
       <MainPage pageKey={pageKey} />
-    </Card>
+    </PageHeader>
   );
 };
 

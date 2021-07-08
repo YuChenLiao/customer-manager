@@ -15,6 +15,7 @@ export interface defaultState {
     room: '';
     phone: '';
   };
+  cost: '';
 }
 
 export interface defaultModel {
@@ -48,6 +49,7 @@ const globalState: defaultModel = {
       room: '',
       phone: '',
     },
+    cost: '',
   },
   effects: {},
   reducers: {

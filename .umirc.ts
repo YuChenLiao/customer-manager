@@ -12,6 +12,12 @@ export default defineConfig({
   layout: { name: '客房管理系统', locale: false },
   routes: [
     { exact: true, name: '首页', path: '/', component: '@/pages/index' },
+    {
+      exact: true,
+      name: '客房名单',
+      path: '/roomList',
+      component: '@/pages/roomList',
+    },
   ],
   fastRefresh: {},
 });

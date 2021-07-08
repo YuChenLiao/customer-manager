@@ -1,0 +1,26 @@
+@import '~antd/lib/style/themes/default.less';
+
+.name-wrapper {
+  .name-list__item {
+    font-size: 16px;
+    line-height: 32px;
+    height: 32px;
+    width: 100%;
+    text-align: center;
+    color: #7699ca;
+    border: 1px solid #7699ca;
+    border-radius: 8px;
+  }
+
+  :global {
+    .ant-tag-checkable:not(.ant-tag-checkable-checked):hover {
+      color: #fff;
+      background-color: #7699ca;
+    }
+
+    .ant-tag-checkable-checked {
+      color: #fff;
+      background-color: #7699ca;
+    }
+  }
+}
