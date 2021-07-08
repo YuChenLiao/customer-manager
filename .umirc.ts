@@ -18,6 +18,12 @@ export default defineConfig({
       path: '/roomList',
       component: '@/pages/roomList',
     },
+    {
+      exact: true,
+      name: '信息统计',
+      path: '/infoCollect',
+      component: '@/pages/infoCollect',
+    },
   ],
   fastRefresh: {},
 });
