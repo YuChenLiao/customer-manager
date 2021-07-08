@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { PageHeader, Card } from 'antd';
+import { PageHeader, Card, Menu } from 'antd';
 import { Loading, connect, defaultState } from 'umi';
 
 interface PageProps {
@@ -8,7 +8,11 @@ interface PageProps {
 }
 
 const InfoCollect: FC<PageProps> = (props) => {
-  return <PageHeader title="信息统计"></PageHeader>;
+  return (
+    <PageHeader title="信息统计">
+      <Menu></Menu>
+    </PageHeader>
+  );
 };
 
 export default connect(

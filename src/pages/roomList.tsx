@@ -2,7 +2,6 @@ import { FC, useState } from 'react';
 import { Card, PageHeader, Tag, Row, Col, Menu } from 'antd';
 import { Loading, connect, defaultState } from 'umi';
 import NameList from './components/nameList';
-import styles from './roomList.less';
 
 const { CheckableTag } = Tag;
 

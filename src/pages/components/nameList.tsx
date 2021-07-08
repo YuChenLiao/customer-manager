@@ -1,11 +1,11 @@
 import { FC, useState } from 'react';
 import { Card, PageHeader, Tag, Row, Col, Menu } from 'antd';
 import { Loading, connect, defaultState } from 'umi';
-import styles from '../roomList.less';
+import styles from './nameList.less';
 
 const { CheckableTag } = Tag;
 
-const NameList = ({ list }: any) => {
+const NameList = ({ list, onClick }: any) => {
   console.log(list);
   return (
     <Row>
