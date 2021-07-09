@@ -22,7 +22,6 @@ const IndexPage: FC<PageProps> = (props) => {
   const [pageKey, setPage] = useState('checkIn');
   const [roomType, setType] = useState('');
   const { global } = props;
-  console.log(global);
 
   const layout = {
     labelCol: { span: 4 },

@@ -21,7 +21,6 @@ const RoomList: FC<PageProps> = (props) => {
   };
 
   const MainPage = (type: any) => {
-    console.log(type.type);
     switch (type.type) {
       case 'simple':
         return <NameList list={roomList.simple} />;
