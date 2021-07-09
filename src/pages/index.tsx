@@ -9,11 +9,12 @@ import {
   Radio,
   PageHeader,
 } from 'antd';
-import { Loading, connect, defaultState } from 'umi';
+import { Loading, connect, defaultState, Dispatch } from 'umi';
 
 interface PageProps {
   global: defaultState;
   loading: boolean;
+  dispatch: Dispatch;
 }
 
 const { Option } = Select;
@@ -37,13 +38,13 @@ const IndexPage: FC<PageProps> = (props) => {
       <Card>
         <Form {...layout}>
           <Form.Item label="姓名">
-            <Input />
+            <Input onChange={handleName} />
           </Form.Item>
           <Form.Item label="身份证号">
-            <Input />
+            <Input onChange={handleCode} />
           </Form.Item>
           <Form.Item label="手机">
-            <Input />
+            <Input onChange={handlePhone} />
           </Form.Item>
           <Form.Item label="房间类型">
             <Radio.Group value={roomType} onChange={changeType}>
@@ -52,13 +53,15 @@ const IndexPage: FC<PageProps> = (props) => {
             </Radio.Group>
           </Form.Item>
           <Form.Item label="房间号">
-            <Select>
+            <Select onChange={handleRoom}>
               <Option value="simple">单人间</Option>
               <Option value="double">双人间</Option>
             </Select>
           </Form.Item>
           <Form.Item {...tailLayout}>
-            <Button type="primary">确定</Button>
+            <Button type="primary" onClick={submitForm}>
+              确定
+            </Button>
           </Form.Item>
         </Form>
       </Card>
@@ -66,8 +69,57 @@ const IndexPage: FC<PageProps> = (props) => {
   };
 
   const changeType = (e: any) => {
+    const { dispatch } = props;
     setType(e.target.value);
+    dispatch({
+      type: 'global/changePost',
+      payload: {
+        type: e.target.value,
+      },
+    });
   };
+
+  const handleName = (e: any) => {
+    const { dispatch } = props;
+    dispatch({
+      type: 'global/changePost',
+      payload: {
+        name: e.target.value,
+      },
+    });
+  };
+
+  const handlePhone = (e: any) => {
+    const { dispatch } = props;
+    dispatch({
+      type: 'global/changePost',
+      payload: {
+        name: e.target.value,
+      },
+    });
+  };
+
+  const handleCode = (e: any) => {
+    const { dispatch } = props;
+    dispatch({
+      type: 'global/changePost',
+      payload: {
+        name: e.target.value,
+      },
+    });
+  };
+
+  const handleRoom = (value: any) => {
+    const { dispatch } = props;
+    dispatch({
+      type: 'global/changePost',
+      payload: {
+        name: value,
+      },
+    });
+  };
+
+  const submitForm = () => {};
 
   const CheckOut = () => {
     return (
