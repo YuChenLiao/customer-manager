@@ -1,11 +1,13 @@
 import { FC, useState } from 'react';
 import { PageHeader, Card, Menu, Divider, List } from 'antd';
-import { Loading, connect, defaultState } from 'umi';
+import { Loading, connect, defaultState, Dispatch } from 'umi';
 import NameList from './components/nameList';
+import { getBreadcrumbFromProps } from '@ant-design/pro-layout/lib/utils/getBreadcrumbProps';
 
 interface PageProps {
   global: defaultState;
   loading: boolean;
+  dispatch: Dispatch;
 }
 
 const InfoCollect: FC<PageProps> = (props) => {
@@ -17,6 +19,10 @@ const InfoCollect: FC<PageProps> = (props) => {
 
   const handleClick = (e: any) => {
     setType(e.key);
+  };
+
+  const clickRoom = (checked: boolean, item: object) => {
+    const { dispatch } = props;
   };
 
   const MainPage = ({ type }: any) => {

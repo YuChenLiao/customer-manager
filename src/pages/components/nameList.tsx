@@ -5,8 +5,8 @@ import styles from './nameList.less';
 const { CheckableTag } = Tag;
 
 const NameList = ({ list, onClick, selected }: any) => {
-  const checkItems = (checked: any) => {
-    console.log(checked);
+  const checkItems = (checked: boolean, item: object) => {
+    console.log(item);
   };
 
   return (
@@ -28,7 +28,7 @@ const NameList = ({ list, onClick, selected }: any) => {
             checked={item.status}
             className={styles['name-list__item']}
             key={item.name}
-            onChange={(checked: any) => checkItems(checked)}
+            onChange={(checked: any) => checkItems(checked, item)}
           >
             {item.name}
           </CheckableTag>

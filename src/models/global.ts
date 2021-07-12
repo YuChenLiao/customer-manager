@@ -7,6 +7,8 @@ export interface defaultState {
         {
           name: '123';
           status: false;
+          type: 'simple';
+          number: 10;
         },
       ];
       double: [];
@@ -46,6 +48,8 @@ const globalState: defaultModel = {
           {
             name: '123',
             status: false,
+            type: 'simple',
+            number: 10,
           },
         ],
         double: [],
