@@ -3,7 +3,12 @@ import { Effect, ImmerReducer, Reducer, Subscription } from 'umi';
 export interface defaultState {
   roomInfo: {
     roomList: {
-      simple: [];
+      simple: [
+        {
+          name: '123';
+          status: false;
+        },
+      ];
       double: [];
     };
   };
@@ -37,7 +42,12 @@ const globalState: defaultModel = {
   state: {
     roomInfo: {
       roomList: {
-        simple: [],
+        simple: [
+          {
+            name: '123',
+            status: false,
+          },
+        ],
         double: [],
       },
     },

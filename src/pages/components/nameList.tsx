@@ -4,7 +4,11 @@ import styles from './nameList.less';
 
 const { CheckableTag } = Tag;
 
-const NameList = ({ list, onClick }: any) => {
+const NameList = ({ list, onClick, selected }: any) => {
+  const checkItems = (checked: any) => {
+    console.log(checked);
+  };
+
   return (
     <Row>
       {list.map((item: any) => (
@@ -21,9 +25,10 @@ const NameList = ({ list, onClick }: any) => {
           className={styles['name-wrapper']}
         >
           <CheckableTag
-            checked={true}
+            checked={item.status}
             className={styles['name-list__item']}
             key={item.name}
+            onChange={(checked: any) => checkItems(checked)}
           >
             {item.name}
           </CheckableTag>
