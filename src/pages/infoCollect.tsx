@@ -69,7 +69,7 @@ const InfoCollect: FC<PageProps> = (props) => {
 
   const checkRecord = (item: any) => {
     Modal.info({
-      title: '旅客' + item.name + '入住记录：',
+      title: '旅客' + item.name + '的入住记录：',
       width: '70%',
       content: (
         <List
@@ -103,7 +103,9 @@ const InfoCollect: FC<PageProps> = (props) => {
                 <Form.Item label="身份证号">{item.id}</Form.Item>
                 <Form.Item label="入住次数">{item.count}</Form.Item>
                 <Form.Item>
-                  <Button type="link">入住记录</Button>
+                  <Button type="link" onClick={checkRecord}>
+                    入住记录
+                  </Button>
                 </Form.Item>
               </Form>
             </List.Item>
