@@ -8,6 +8,7 @@ import {
   Form,
   Radio,
   PageHeader,
+  Modal,
 } from 'antd';
 import { Loading, connect, defaultState, Dispatch } from 'umi';
 
@@ -121,6 +122,12 @@ const IndexPage: FC<PageProps> = (props) => {
 
   const submitForm = () => {};
 
+  const fee = () => {
+    Modal.info({
+      content: <div>应付金额为：{global.cost}</div>,
+    });
+  };
+
   const CheckOut = () => {
     return (
       <Card>
@@ -128,9 +135,10 @@ const IndexPage: FC<PageProps> = (props) => {
           <Form.Item label="房间号">
             <Input />
           </Form.Item>
-          <Form.Item label="费用">{global.cost}元</Form.Item>
           <Form.Item {...tailLayout}>
-            <Button type="primary">确定</Button>
+            <Button type="primary" onClick={fee}>
+              确定
+            </Button>
           </Form.Item>
         </Form>
       </Card>
