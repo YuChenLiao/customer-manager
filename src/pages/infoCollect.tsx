@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { PageHeader, Card, Menu, Divider, List, Modal } from 'antd';
+import { PageHeader, Card, Menu, Divider, List, Modal, Form } from 'antd';
 import { Loading, connect, defaultState, Dispatch } from 'umi';
 import NameList from './components/nameList';
 import { getBreadcrumbFromProps } from '@ant-design/pro-layout/lib/utils/getBreadcrumbProps';
@@ -21,8 +21,20 @@ const InfoCollect: FC<PageProps> = (props) => {
     setType(e.key);
   };
 
-  const clickRoom = (item: object) => {
-    Modal.confirm({});
+  const clickRoom = (item: any) => {
+    Modal.confirm({
+      title: item.name + '号客房信息',
+      width: '50%',
+      onOk: () => {},
+      onCancel: () => {},
+      content: (
+        <Form>
+          <Form.Item label="客房类型">{item.type}</Form.Item>
+          <Form.Item label="是否入住">{item.status}</Form.Item>
+          <Form.Item label="历史入住人数">{item.count}</Form.Item>
+        </Form>
+      ),
+    });
   };
 
   const MainPage = ({ type }: any) => {
@@ -31,11 +43,11 @@ const InfoCollect: FC<PageProps> = (props) => {
         return (
           <Card>
             <Card title="单人间">
-              <NameList list={roomList.simple} />
+              <NameList list={roomList.simple} click={clickRoom} />
             </Card>
             <Divider />
             <Card title="双人间">
-              <NameList list={roomList.double} />
+              <NameList list={roomList.double} click={clickRoom} />
             </Card>
           </Card>
         );

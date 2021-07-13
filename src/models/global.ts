@@ -6,8 +6,8 @@ export interface defaultState {
       simple: [
         {
           name: '123';
-          status: false;
-          type: 'simple';
+          status: '未入住';
+          type: '单人间';
           number: 10;
         },
       ];
@@ -47,8 +47,8 @@ const globalState: defaultModel = {
         simple: [
           {
             name: '123',
-            status: false,
-            type: 'simple',
+            status: '未入住',
+            type: '单人间',
             number: 10,
           },
         ],

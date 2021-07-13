@@ -10,7 +10,7 @@ interface PageProps {
 
 const RoomList: FC<PageProps> = (props) => {
   const { global } = props;
-  const [type, setType] = useState('simple');
+  const [type, setType] = useState('单人间');
   const { roomInfo } = global;
   const { roomList } = roomInfo;
 
@@ -42,10 +42,10 @@ const RoomList: FC<PageProps> = (props) => {
 
   const MainPage = (type: any) => {
     switch (type.type) {
-      case 'simple':
+      case '单人间':
         return <NameList list={roomList.simple} click={clickRoom} />;
-      case 'double':
-        return <NameList list={roomList.double} />;
+      case '双人间':
+        return <NameList list={roomList.double} click={clickRoom} />;
       default:
         return null;
     }
@@ -54,8 +54,8 @@ const RoomList: FC<PageProps> = (props) => {
   return (
     <PageHeader title="客房名单">
       <Menu mode="horizontal" selectedKeys={[type]} onClick={handleClick}>
-        <Menu.Item key="simple">单人间</Menu.Item>
-        <Menu.Item key="double">双人间</Menu.Item>
+        <Menu.Item key="单人间">单人间</Menu.Item>
+        <Menu.Item key="双人间">双人间</Menu.Item>
       </Menu>
       <Card>
         <MainPage type={type} />

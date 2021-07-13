@@ -25,7 +25,7 @@ const NameList = ({ list, click }: any) => {
           className={styles['name-wrapper']}
         >
           <CheckableTag
-            checked={item.status}
+            checked={false}
             className={styles['name-list__item']}
             key={item.name}
             onChange={(checked: any) => checkItems(checked, item)}
