@@ -1,5 +1,14 @@
 import { FC, useState } from 'react';
-import { PageHeader, Card, Menu, Divider, List, Modal, Form } from 'antd';
+import {
+  PageHeader,
+  Card,
+  Menu,
+  Divider,
+  List,
+  Modal,
+  Form,
+  Button,
+} from 'antd';
 import { Loading, connect, defaultState, Dispatch } from 'umi';
 import NameList from './components/nameList';
 import { getBreadcrumbFromProps } from '@ant-design/pro-layout/lib/utils/getBreadcrumbProps';
@@ -58,6 +67,28 @@ const InfoCollect: FC<PageProps> = (props) => {
     }
   };
 
+  const checkRecord = (item: any) => {
+    Modal.info({
+      title: '旅客' + item.name + '入住记录：',
+      width: '70%',
+      content: (
+        <List
+          size="default"
+          bordered
+          dataSource={item.record}
+          renderItem={(item: any) => (
+            <List.Item>
+              <Form>
+                <Form.Item label="房间号">{item.roomID}</Form.Item>
+                <Form.Item label="入住日期">{item.date}</Form.Item>
+              </Form>
+            </List.Item>
+          )}
+        />
+      ),
+    });
+  };
+
   const Person = () => {
     return (
       <Card title="旅客信息">
@@ -65,7 +96,18 @@ const InfoCollect: FC<PageProps> = (props) => {
           size="large"
           bordered
           dataSource={personInfo}
-          renderItem={(item: any) => <List.Item>{item}</List.Item>}
+          renderItem={(item: any) => (
+            <List.Item>
+              <Form>
+                <Form.Item label="姓名">{item.name}</Form.Item>
+                <Form.Item label="身份证号">{item.id}</Form.Item>
+                <Form.Item label="入住次数">{item.count}</Form.Item>
+                <Form.Item>
+                  <Button type="link">入住记录</Button>
+                </Form.Item>
+              </Form>
+            </List.Item>
+          )}
         />
       </Card>
     );
