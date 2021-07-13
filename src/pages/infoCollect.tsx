@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { PageHeader, Card, Menu, Divider, List } from 'antd';
+import { PageHeader, Card, Menu, Divider, List, Modal } from 'antd';
 import { Loading, connect, defaultState, Dispatch } from 'umi';
 import NameList from './components/nameList';
 import { getBreadcrumbFromProps } from '@ant-design/pro-layout/lib/utils/getBreadcrumbProps';
@@ -21,8 +21,8 @@ const InfoCollect: FC<PageProps> = (props) => {
     setType(e.key);
   };
 
-  const clickRoom = (checked: boolean, item: object) => {
-    const { dispatch } = props;
+  const clickRoom = (item: object) => {
+    Modal.confirm({});
   };
 
   const MainPage = ({ type }: any) => {

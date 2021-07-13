@@ -1,9 +1,7 @@
 import { FC, useState } from 'react';
-import { Card, PageHeader, Tag, Row, Col, Menu } from 'antd';
+import { Card, PageHeader, Menu, Modal, Button, Divider } from 'antd';
 import { Loading, connect, defaultState } from 'umi';
 import NameList from './components/nameList';
-
-const { CheckableTag } = Tag;
 
 interface PageProps {
   global: defaultState;
@@ -20,10 +18,32 @@ const RoomList: FC<PageProps> = (props) => {
     setType(e.key);
   };
 
+  const clickRoom = (item: object) => {
+    console.log(item);
+    const modal = Modal.info(item);
+    modal.update({
+      title: '请选择要执行的操作',
+      centered: true,
+      width: '20%',
+      maskClosable: true,
+      okText: '取消',
+      content: (
+        <div>
+          <Button shape="round" type="primary" danger>
+            删除房间
+          </Button>
+          <Button shape="round" type="primary">
+            设置禁用
+          </Button>
+        </div>
+      ),
+    });
+  };
+
   const MainPage = (type: any) => {
     switch (type.type) {
       case 'simple':
-        return <NameList list={roomList.simple} />;
+        return <NameList list={roomList.simple} click={clickRoom} />;
       case 'double':
         return <NameList list={roomList.double} />;
       default:

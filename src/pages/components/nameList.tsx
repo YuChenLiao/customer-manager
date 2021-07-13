@@ -4,9 +4,9 @@ import styles from './nameList.less';
 
 const { CheckableTag } = Tag;
 
-const NameList = ({ list, onClick, selected }: any) => {
+const NameList = ({ list, click }: any) => {
   const checkItems = (checked: boolean, item: object) => {
-    console.log(item);
+    if (checked) click(item);
   };
 
   return (
