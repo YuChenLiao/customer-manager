@@ -49,15 +49,12 @@ const IndexPage: FC<PageProps> = (props) => {
           </Form.Item>
           <Form.Item label="房间类型">
             <Radio.Group value={roomType} onChange={changeType}>
-              <Radio value="simple">单人间</Radio>
-              <Radio value="double">双人间</Radio>
+              <Radio value="单人间">单人间</Radio>
+              <Radio value="双人间">双人间</Radio>
             </Radio.Group>
           </Form.Item>
           <Form.Item label="房间号">
-            <Select onChange={handleRoom}>
-              <Option value="simple">单人间</Option>
-              <Option value="double">双人间</Option>
-            </Select>
+            <Select onChange={handleRoom}>{Options(roomType)}</Select>
           </Form.Item>
           <Form.Item {...tailLayout}>
             <Button type="primary" onClick={submitForm}>
@@ -67,6 +64,35 @@ const IndexPage: FC<PageProps> = (props) => {
         </Form>
       </Card>
     );
+  };
+
+  const Options = (type: any) => {
+    const list = [];
+    const { global } = props;
+    const { roomInfo } = global;
+    const { roomList } = roomInfo;
+    switch (type) {
+      case '单人间':
+        for (let i = 0; i < roomList.simple.length; i++) {
+          if (roomList.simple[i].status === '未入住')
+            list.push(
+              <Option value={roomList.simple[i].name} key={i}>
+                {roomList.simple[i].name}
+              </Option>,
+            );
+        }
+      case '双人间':
+        for (let i = 0; i < roomList.double.length; i++) {
+          if (roomList.double[i].status === '未入住')
+            list.push(
+              <Option value={roomList.simple[i].name} key={i}>
+                {roomList.simple[i].name}
+              </Option>,
+            );
+        }
+      default:
+    }
+    return list;
   };
 
   const changeType = (e: any) => {

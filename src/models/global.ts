@@ -11,7 +11,7 @@ export interface defaultState {
           number: 1;
         },
       ];
-      double: [];
+      double: any[];
     };
   };
   personInfo: [
@@ -46,8 +46,6 @@ export interface defaultModel {
     changeRoom: Reducer<defaultState>;
     changePerson: Reducer<defaultState>;
     changePost: Reducer<defaultState>;
-    // 启用 immer 之后
-    // save: ImmerReducer<IndexModelState>;
   };
 }
 
