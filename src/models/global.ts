@@ -1,4 +1,5 @@
 import { Effect, ImmerReducer, Reducer, Subscription } from 'umi';
+import axios from 'axios';
 
 export interface defaultState {
   roomInfo: {
@@ -40,7 +41,12 @@ export interface defaultState {
 export interface defaultModel {
   namespace: 'global';
   state: defaultState;
-  effects: {};
+  effects: {
+    initData: Effect;
+    submitForm: Effect;
+    subDelete: Effect;
+    subChange: Effect;
+  };
   reducers: {
     initView: Reducer<defaultState>;
     changeRoom: Reducer<defaultState>;
@@ -87,7 +93,12 @@ const globalState: defaultModel = {
     },
     cost: '',
   },
-  effects: {},
+  effects: {
+    *initData({ payload }: any, { select, put, call }: any) {},
+    *submitForm(_: any, { select, put, call }: any) {},
+    *subDelete(_: any, { select, put, call }: any) {},
+    *subChange(_: any, { select, put, call }: any) {},
+  },
   reducers: {
     initView(state: any, { payload }: any) {
       return {
