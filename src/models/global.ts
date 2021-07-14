@@ -8,13 +8,25 @@ export interface defaultState {
           name: '123';
           status: '未入住';
           type: '单人间';
-          number: 10;
+          number: 1;
         },
       ];
       double: [];
     };
   };
-  personInfo: [];
+  personInfo: [
+    {
+      id: '1010101';
+      name: '123';
+      count: 1;
+      record: [
+        {
+          roomID: '202';
+          date: '2021/7/1';
+        },
+      ];
+    },
+  ];
   postForm: {
     name: '';
     code: '';
@@ -49,13 +61,25 @@ const globalState: defaultModel = {
             name: '123',
             status: '未入住',
             type: '单人间',
-            number: 10,
+            number: 1,
           },
         ],
         double: [],
       },
     },
-    personInfo: [],
+    personInfo: [
+      {
+        id: '1010101',
+        name: '123',
+        count: 1,
+        record: [
+          {
+            roomID: '202',
+            date: '2021/7/1',
+          },
+        ],
+      },
+    ],
     postForm: {
       name: '',
       code: '',
