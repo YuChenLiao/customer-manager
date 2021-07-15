@@ -13,12 +13,12 @@ export default defineConfig({
   routes: [
     {
       exact: true,
-      path: '/login',
+      path: '/',
       component: '@/pages/login',
       headerRender: false,
       menuRender: false,
     },
-    { exact: true, name: '首页', path: '/', component: '@/pages/index' },
+    { exact: true, name: '首页', path: '/index', component: '@/pages/index' },
     {
       exact: true,
       name: '客房名单',

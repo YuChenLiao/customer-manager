@@ -1,6 +1,6 @@
 import { useState, FC } from 'react';
-import { Form, Card, Input, Button } from 'antd';
-import { Loading, connect, defaultState, Dispatch } from 'umi';
+import { Form, Card, Input, Button, message } from 'antd';
+import { Loading, connect, defaultState, Dispatch, history } from 'umi';
 import style from './login.less';
 
 interface PageProps {
@@ -19,18 +19,42 @@ const Login: FC<PageProps> = (props) => {
     wrapperCol: { offset: 4, span: 16 },
   };
 
+  const [userName, setName] = useState('');
+  const [password, setPass] = useState('');
+
+  const login = () => {
+    history.push('/index');
+    message.success('登录成功');
+  };
+
   return (
     <Card className={style.loginBack}>
       <Card className={style.loginCard}>
         <Form {...layout}>
-          <Form.Item label="用户名">
-            <Input></Input>
+          <Form.Item
+            label="用户名"
+            name="username"
+            rules={[{ required: true, message: '请输入用户名' }]}
+          >
+            <Input
+              value={userName}
+              onChange={(e: any) => setName(e.target.value)}
+            />
           </Form.Item>
-          <Form.Item label="密码">
-            <Input></Input>
+          <Form.Item
+            label="密码"
+            name="password"
+            rules={[{ required: true, message: '请输入密码' }]}
+          >
+            <Input.Password
+              value={password}
+              onChange={(e: any) => setPass(e.target.value)}
+            />
           </Form.Item>
           <Form.Item {...tailLayout}>
-            <Button type="primary">登录</Button>
+            <Button type="primary" onClick={login}>
+              登录
+            </Button>
           </Form.Item>
         </Form>
       </Card>
