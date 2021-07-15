@@ -25,6 +25,7 @@ const Login: FC<PageProps> = (props) => {
   const login = () => {
     history.push('/index');
     message.success('登录成功');
+    localStorage.setItem('isLogin', 'true');
   };
 
   return (
