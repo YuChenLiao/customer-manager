@@ -11,7 +11,6 @@ import {
 } from 'antd';
 import { Loading, connect, defaultState, Dispatch } from 'umi';
 import NameList from './components/nameList';
-import { getBreadcrumbFromProps } from '@ant-design/pro-layout/lib/utils/getBreadcrumbProps';
 
 interface PageProps {
   global: defaultState;

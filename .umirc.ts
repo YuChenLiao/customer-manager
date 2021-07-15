@@ -11,6 +11,13 @@ export default defineConfig({
   antd: {},
   layout: { name: '客房管理系统', locale: false },
   routes: [
+    {
+      exact: true,
+      path: '/login',
+      component: '@/pages/login',
+      headerRender: false,
+      menuRender: false,
+    },
     { exact: true, name: '首页', path: '/', component: '@/pages/index' },
     {
       exact: true,
