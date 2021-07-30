@@ -67,10 +67,10 @@ const InfoCollect: FC<PageProps> = (props) => {
   };
 
   const checkRecord = (item: any) => {
-    console.log(item);
     Modal.info({
       title: '旅客' + item.name + '的入住记录：',
       width: '70%',
+      maskClosable: true,
       content: (
         <List
           size="default"

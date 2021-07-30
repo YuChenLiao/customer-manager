@@ -29,16 +29,21 @@ const RoomList: FC<PageProps> = (props) => {
       okText: '取消',
       content: (
         <div>
-          <Button shape="round" type="primary" danger>
+          <Button type="primary" danger block onClick={deleteRoom}>
             删除房间
           </Button>
-          <Button shape="round" type="primary">
+          <Divider />
+          <Button type="primary" block onClick={changeStatus}>
             设置禁用
           </Button>
         </div>
       ),
     });
   };
+
+  const deleteRoom = () => {};
+
+  const changeStatus = () => {};
 
   const MainPage = (type: any) => {
     switch (type.type) {

@@ -171,8 +171,8 @@ const IndexPage: FC<PageProps> = (props) => {
     );
   };
 
-  const MainPage = (pageKey: any) => {
-    switch (pageKey.pageKey) {
+  const MainPage = ({ pageKey }: any) => {
+    switch (pageKey) {
       case 'checkIn':
         return <CheckIn />;
       case 'checkOut':
