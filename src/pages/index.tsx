@@ -10,7 +10,7 @@ import {
   PageHeader,
   Modal,
 } from 'antd';
-import { Loading, connect, defaultState, Dispatch } from 'umi';
+import { Loading, connect, defaultState, Dispatch, history } from 'umi';
 
 interface PageProps {
   global: defaultState;

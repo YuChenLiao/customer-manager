@@ -1,4 +1,4 @@
-import { useState, FC } from 'react';
+import { useState, FC, useEffect } from 'react';
 import { Form, Card, Input, Button, message } from 'antd';
 import { Loading, connect, defaultState, Dispatch, history } from 'umi';
 import style from './login.less';
@@ -10,6 +10,12 @@ interface PageProps {
 }
 
 const Login: FC<PageProps> = (props) => {
+  useEffect(() => {
+    // 判断是否登录，如果已经登录则进行拦截
+    const isLogin = localStorage.getItem('isLogin');
+    if (isLogin) history.goBack();
+  }, []);
+
   const layout = {
     labelCol: { span: 4 },
     wrapperCol: { span: 16 },

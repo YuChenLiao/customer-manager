@@ -17,7 +17,6 @@ export default defineConfig({
       component: '@/pages/login',
       headerRender: false,
       menuRender: false,
-      wrappers: ['@/wrappers/auth'],
     },
     {
       exact: true,
