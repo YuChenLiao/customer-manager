@@ -13,10 +13,11 @@ export default defineConfig({
   routes: [
     {
       exact: true,
-      path: '/',
+      path: '/login',
       component: '@/pages/login',
       headerRender: false,
       menuRender: false,
+      wrappers: ['@/wrappers/auth'],
     },
     {
       exact: true,
