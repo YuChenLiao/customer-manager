@@ -1,6 +1,7 @@
 import { useState, FC, useEffect } from 'react';
 import { Form, Card, Input, Button, message } from 'antd';
 import { Loading, connect, defaultState, Dispatch, history } from 'umi';
+import axios from 'axios';
 import style from './login.less';
 
 interface PageProps {
@@ -30,6 +31,11 @@ const Login: FC<PageProps> = (props) => {
 
   const login = () => {
     history.push('/index');
+    const temp = axios.post('http://121.199.32.101:8085/api/login', {
+      userName: userName,
+      password: password,
+    });
+    console.log(temp);
     message.success('登录成功');
     localStorage.setItem('isLogin', 'true');
   };

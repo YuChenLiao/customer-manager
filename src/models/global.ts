@@ -1,5 +1,6 @@
 import { Effect, ImmerReducer, Reducer, Subscription } from 'umi';
 import axios from 'axios';
+import { message } from 'antd';
 
 export interface defaultState {
   roomInfo: {
@@ -95,7 +96,9 @@ const globalState: defaultModel = {
   },
   effects: {
     *initData({ payload }: any, { select, put, call }: any) {},
-    *submitForm(_: any, { select, put, call }: any) {},
+    *submitForm(_: any, { select, put, call }: any) {
+      message.success('提交成功');
+    },
     *subDelete(_: any, { select, put, call }: any) {},
     *subChange(_: any, { select, put, call }: any) {},
   },
@@ -126,6 +129,7 @@ const globalState: defaultModel = {
       };
     },
     changePost(state: any, { payload }: any) {
+      console.log(payload);
       return {
         ...state,
         postForm: {

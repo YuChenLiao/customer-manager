@@ -13,7 +13,7 @@ export default defineConfig({
   routes: [
     {
       exact: true,
-      path: '/login',
+      path: '/',
       component: '@/pages/login',
       headerRender: false,
       menuRender: false,
